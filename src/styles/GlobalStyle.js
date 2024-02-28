@@ -13,8 +13,6 @@ const GlobalStyle = createGlobalStyle`
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    display: flex;
-    place-items: center;
     min-width: 320px;
     min-height: 100vh;
   }
