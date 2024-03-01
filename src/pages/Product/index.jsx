@@ -2,12 +2,18 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { ProductContainer, ContentContainer, ImageContainer, ProductDetails, ReviewsContainer, Review, AddToCartButton } from "./Product.styles";
+import { calculateDiscountPercentage } from "../../utils/calculateDiscountPercentage";
+import { ProductPrice, OriginalPrice, DiscountPercentage, StarIcon, ProductTitle, ProductDescription, ProductRating } from "../../styles/sharedStylesProducts";
+import useProductStore from "../../store/useProductStore";
 
 const ProductPage = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
+
+  // Get addToCart function from store
+  const addToCart = useProductStore((state) => state.addToCart);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -28,24 +34,41 @@ const ProductPage = () => {
   if (isLoading) return <div>Loading product...</div>;
   if (isError || !product) return <div>Error loading product.</div>;
 
+  const discountPercentage = calculateDiscountPercentage(product.price, product.discountedPrice);
+
+  // Handle add to cart button click
+  const handleAddToCart = () => {
+    addToCart({ ...product, quantity: 1 });
+  };
+
   return (
     <ProductContainer>
       <ContentContainer>
-        {" "}
-        {/* Wrap image and details */}
         <ImageContainer>
           <img src={product.image.url} alt={product.image.alt} />
+          {product.discountedPrice < product.price && <DiscountPercentage>{discountPercentage}% OFF</DiscountPercentage>}
         </ImageContainer>
         <ProductDetails>
-          <h2>{product.title}</h2>
-          <p>{product.description}</p>
-          {/* Include other details like rating, price, and Add to Cart button */}
-          <AddToCartButton>Add to Cart</AddToCartButton>
+          <ProductTitle>{product.title}</ProductTitle>
+          <ProductDescription>{product.description}</ProductDescription>
+          <ProductRating>
+            <StarIcon />
+            {product.rating}
+          </ProductRating>
+          <ProductPrice>
+            {product.discountedPrice < product.price ? (
+              <>
+                <OriginalPrice>${product.price}</OriginalPrice>
+                <span>${product.discountedPrice}</span>
+              </>
+            ) : (
+              <span>${product.price}</span>
+            )}
+          </ProductPrice>
+          <AddToCartButton onClick={handleAddToCart}>Add to Cart</AddToCartButton>
         </ProductDetails>
       </ContentContainer>
       <ReviewsContainer>
-        {" "}
-        {/* Keep reviews below */}
         {product.reviews &&
           product.reviews.map((review) => (
             <Review key={review.id}>

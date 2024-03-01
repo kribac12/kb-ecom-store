@@ -23,15 +23,20 @@ export const ContentContainer = styled.div`
 
 export const ImageContainer = styled.div`
   flex: 1;
+  position: relative;
+`;
 
-  img {
-    width: 100%;
-    height: auto;
-  }
+export const ProductImage = styled.img`
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 `;
 
 export const ProductDetails = styled.div`
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
   padding: 20px;
 
   @media (min-width: 768px) {
@@ -41,12 +46,6 @@ export const ProductDetails = styled.div`
 
 export const ReviewsContainer = styled.div`
   margin-top: 20px;
-`;
-
-export const ProductImage = styled.img`
-  width: 100%;
-  height: auto;
-  object-fit: cover; // Adjusts the image's fit within its box, if necessary
 `;
 
 export const Review = styled.div`
@@ -60,10 +59,10 @@ export const AddToCartButton = styled.button`
   background-color: #007bff;
   color: white;
   padding: 10px 15px;
+  margin: 15px 0px;
   border: none;
   cursor: pointer;
   transition: background-color 0.3s ease;
-
   &:hover {
     background-color: #0056b3;
   }

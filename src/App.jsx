@@ -1,15 +1,16 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
-const Home = lazy(() => import("./pages/Home"));
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import theme from "./styles/theme";
 import GlobalStyle from "./styles/GlobalStyle";
 import Layout from "./components/Layout";
-import ProductPage from "./pages/Product";
-import Cart from "./pages/Cart";
-import Checkout from "./pages/Checkout";
-import Contact from "./pages/Contact";
-import NotFound from "./pages/NotFound";
+
+const Home = lazy(() => import("./pages/Home"));
+const ProductPage = lazy(() => import("./pages/Product"));
+const Cart = lazy(() => import("./pages/Cart"));
+const Checkout = lazy(() => import("./pages/Checkout"));
+const Contact = lazy(() => import("./pages/Contact"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 const App = () => {
   return (

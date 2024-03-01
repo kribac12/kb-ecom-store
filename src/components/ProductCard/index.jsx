@@ -1,19 +1,7 @@
 import { Link } from "react-router-dom";
 import { calculateDiscountPercentage } from "../../utils/calculateDiscountPercentage";
-import {
-  Card,
-  ProductImageContainer,
-  ProductImage,
-  ProductInfo,
-  ProductDescription,
-  ProductTitle,
-  ProductPrice,
-  OriginalPrice,
-  DiscountPercentage,
-  ProductRating,
-  StarIcon,
-  ViewProductButton,
-} from "./ProductCard.styles";
+import { Card, ProductImageContainer, ProductImage, ProductInfo, ViewProductButton } from "./ProductCard.styles";
+import { ProductPrice, OriginalPrice, DiscountPercentage, ProductTitle, StarIcon, ProductDescription, ProductRating } from "../../styles/sharedStylesProducts";
 import PropTypes from "prop-types";
 
 const ProductCard = ({ product }) => {
