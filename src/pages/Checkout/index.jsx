@@ -1,13 +1,57 @@
-import { Link } from "react-router-dom";
+import useProductStore from "../../store/useProductStore";
+import { useNavigate } from "react-router-dom";
+import {
+  CartContainer,
+  CartItem,
+  CartItemDetails,
+  CartItemImage,
+  CartItemTitle,
+  CartItemPrice,
+  RemoveButton,
+  TotalPrice,
+  CheckoutButton,
+} from "./Checkout.styles";
 
-const Checkout = () => {
+const CheckoutPage = () => {
+  const navigate = useNavigate();
+  const { cartItems, removeFromCart, clearCart } = useProductStore((state) => ({
+    cartItems: state.cartItems,
+    removeFromCart: state.removeFromCart,
+    clearCart: state.clearCart,
+  }));
+
+  const handleCheckout = () => {
+    clearCart();
+    navigate("/checkout-success", { replace: true });
+  };
+
+  // Calculate total price
+  const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+
   return (
-    <div>
-      <h1>Order Successful</h1>
-      <p>Your order has been placed successfully.</p>
-      <Link to="/">Go back to the store</Link>
-    </div>
+    <CartContainer>
+      {cartItems.length > 0 ? (
+        <>
+          {cartItems.map((item) => (
+            <CartItem key={item.id}>
+              <CartItemImage src={item.image.url} alt={item.image.alt} />
+              <CartItemDetails>
+                <CartItemTitle>{item.title}</CartItemTitle>
+                <CartItemPrice>
+                  ${item.price} x {item.quantity}
+                </CartItemPrice>
+                <RemoveButton onClick={() => removeFromCart(item.id)}>Remove</RemoveButton>
+              </CartItemDetails>
+            </CartItem>
+          ))}
+          <TotalPrice>Total: ${totalPrice.toFixed(2)}</TotalPrice>
+          <CheckoutButton onClick={handleCheckout}>Checkout</CheckoutButton>
+        </>
+      ) : (
+        <p>Your cart is empty.</p>
+      )}
+    </CartContainer>
   );
 };
 
-export default Checkout;
+export default CheckoutPage;

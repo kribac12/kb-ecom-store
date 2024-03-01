@@ -1,14 +1,13 @@
-import { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Suspense, lazy } from "react";
 import { ThemeProvider } from "styled-components";
 import theme from "./styles/theme";
 import GlobalStyle from "./styles/GlobalStyle";
 import Layout from "./components/Layout";
-
 const Home = lazy(() => import("./pages/Home"));
 const ProductPage = lazy(() => import("./pages/Product"));
-const Cart = lazy(() => import("./pages/Cart"));
-const Checkout = lazy(() => import("./pages/Checkout"));
+const CheckoutPage = lazy(() => import("./pages/Checkout"));
+const CheckoutSuccessPage = lazy(() => import("./pages/CheckoutSuccessPage"));
 const Contact = lazy(() => import("./pages/Contact"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -22,8 +21,8 @@ const App = () => {
             <Route path="/" element={<Layout />}>
               <Route index element={<Home />} />
               <Route path="product/:id" element={<ProductPage />} />
-              <Route path="cart" element={<Cart />} />
-              <Route path="checkout" element={<Checkout />} />
+              <Route path="checkout" element={<CheckoutPage />} />
+              <Route path="checkout-success" element={<CheckoutSuccessPage />} />
               <Route path="contact" element={<Contact />} />
               <Route path="*" element={<NotFound />} />
             </Route>

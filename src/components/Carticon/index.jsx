@@ -6,7 +6,7 @@ const CartIcon = () => {
   const itemCount = useProductStore((state) => state.getItemCount());
 
   return (
-    <CartIconContainer to="/cart">
+    <CartIconContainer to="/checkout">
       <FaShoppingCart size="1.5em" />
       <ItemCount>{itemCount}</ItemCount>
     </CartIconContainer>

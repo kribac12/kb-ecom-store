@@ -31,30 +31,27 @@ const useProductStore = create((set, get) => ({
     }
   },
   cartItems: [],
-  addToCart: (item) =>
+  addToCart: (item) => {
     set((state) => {
       const existingItemIndex = state.cartItems.findIndex((cartItem) => cartItem.id === item.id);
-      let newCartItems = [];
       if (existingItemIndex >= 0) {
-        //Item exists, update item count
-        newCartItems = state.cartItems.map((cartItem, index) => (index === existingItemIndex ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem));
+        // Item exists, update item count
+        const updatedCartItems = state.cartItems.map((cartItem, index) =>
+          index === existingItemIndex ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
+        );
+        return { cartItems: updatedCartItems };
       } else {
-        newCartItems = [...state.cartItems, { ...item, quantity: 1 }];
+        // Item does not exist, add new item
+        return { cartItems: [...state.cartItems, { ...item, quantity: 1 }] };
       }
-      return { cartItems: newCartItems };
-    }),
-  removeFromCart: (itemId) =>
+    });
+  },
+  removeFromCart: (itemId) => {
     set((state) => {
-      const existingItem = state.cartItems.find((item) => item.id === itemId);
-      let newCartItems = [];
-      if (existingItem && existingItem.quantity > 1) {
-        newCartItems = state.cartItems.map((item) => (item.id === itemId ? { ...item, quantity: item.quantity - 1 } : item));
-      } else {
-        newCartItems = state.cartItems.filter((item) => item.id !== itemId);
-      }
-
-      return { cartItems: newCartItems };
-    }),
+      const updatedCartItems = state.cartItems.filter((item) => item.id !== itemId || (item.id === itemId && item.quantity > 1 ? --item.quantity : false));
+      return { cartItems: updatedCartItems.filter((item) => item.quantity > 0) };
+    });
+  },
   getItemCount: () => get().cartItems.reduce((total, item) => total + item.quantity, 0),
   clearCart: () => set({ cartItems: [] }),
 }));
