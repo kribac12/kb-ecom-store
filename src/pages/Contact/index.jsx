@@ -1,9 +1,8 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { StyledForm, StyledButton, StyledInput, StyledLabel, StyledTextArea, ErrorMessage } from "./Contact.styles";
+import { StyledForm, FormTitle, StyledButton, StyledInput, StyledLabel, StyledTextArea, ErrorMessage } from "./Contact.styles";
 
-// Define the validation schema using Yup
 const schema = yup.object().shape({
   fullName: yup.string().min(3, "Minimum number of characters is 3").required("Full name is required"),
   subject: yup.string().min(3, "Minimum number of characters is 3").required("Subject is required"),
@@ -28,6 +27,7 @@ const ContactPage = () => {
 
   return (
     <StyledForm onSubmit={handleSubmit(onSubmit)}>
+      <FormTitle>Contact Us</FormTitle>
       <div>
         <StyledLabel>Full Name</StyledLabel>
         <StyledInput {...register("fullName")} />
