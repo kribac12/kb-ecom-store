@@ -6,6 +6,8 @@ export const HeaderContainer = styled.header`
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
+  max-width: 1200px;
+  margin: auto;
   background-color: ${(props) => props.theme.colors.primary};
 `;
 

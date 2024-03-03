@@ -1,9 +1,7 @@
 import styled from "styled-components";
 
 export const ProductContainer = styled.div`
-  max-width: 1200px;
-  margin: auto;
-  padding: 20px;
+  padding: 20px 0px;
   display: block;
 
   @media (min-width: 768px) {

@@ -2,9 +2,8 @@ import styled from "styled-components";
 import { ProductPrice, ProductTitle } from "../../styles/sharedStylesProducts";
 
 export const CartContainer = styled.div`
-  max-width: 1200px;
   margin: auto;
-  padding: 20px;
+  padding: 20px 0px;
   display: block;
 `;
 

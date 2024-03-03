@@ -26,6 +26,14 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
+  h1 {
+    font-size: 32px;
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: 'Poppins', 'Roboto';
+  }
+
   button {
     border-radius: 8px;
     border: 1px solid transparent;
