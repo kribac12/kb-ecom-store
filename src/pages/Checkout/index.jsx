@@ -1,16 +1,7 @@
 import useProductStore from "../../store/useProductStore";
 import { useNavigate } from "react-router-dom";
-import {
-  CartContainer,
-  CartItem,
-  CartItemDetails,
-  CartItemImage,
-  CartItemTitle,
-  CartItemPrice,
-  RemoveButton,
-  TotalPrice,
-  CheckoutButton,
-} from "./Checkout.styles";
+import { CartContainer, CartItem, CartItemDetails, CartItemImage, CartItemTitle, CartItemPrice, TotalPrice } from "./Checkout.styles";
+import StyledButton from "../../components/StyledButton";
 
 const CheckoutPage = () => {
   const navigate = useNavigate();
@@ -40,12 +31,16 @@ const CheckoutPage = () => {
                 <CartItemPrice>
                   ${item.price} x {item.quantity}
                 </CartItemPrice>
-                <RemoveButton onClick={() => removeFromCart(item.id)}>Remove</RemoveButton>
+                <StyledButton variant="delete" size="medium" onClick={() => removeFromCart(item.id)}>
+                  Remove
+                </StyledButton>
               </CartItemDetails>
             </CartItem>
           ))}
           <TotalPrice>Total: ${totalPrice.toFixed(2)}</TotalPrice>
-          <CheckoutButton onClick={handleCheckout}>Checkout</CheckoutButton>
+          <StyledButton variant="primary" size="large" onClick={handleCheckout}>
+            Checkout
+          </StyledButton>
         </>
       ) : (
         <p>Your cart is empty.</p>

@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import { calculateDiscountPercentage } from "../../utils/calculateDiscountPercentage";
-import { Card, ProductImageContainer, ProductImage, ProductInfo, ViewProductButton } from "./ProductCard.styles";
+import { Card, ProductImageContainer, ProductImage, ProductInfo } from "./ProductCard.styles";
 import { ProductPrice, OriginalPrice, DiscountPercentage, ProductTitle, StarIcon, ProductDescription, ProductRating } from "../../styles/sharedStylesProducts";
 import PropTypes from "prop-types";
+import StyledButton from "../StyledButton";
 
 const ProductCard = ({ product }) => {
   const discountPercentage = calculateDiscountPercentage(product.price, product.discountedPrice);
@@ -31,7 +32,9 @@ const ProductCard = ({ product }) => {
         </ProductPrice>
       </ProductInfo>
       <Link to={`/product/${product.id}`}>
-        <ViewProductButton>View Product</ViewProductButton>
+        <StyledButton variant="primary" size="large" margin="1rem">
+          View Product
+        </StyledButton>
       </Link>
     </Card>
   );

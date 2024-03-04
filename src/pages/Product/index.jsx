@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { ProductContainer, ContentContainer, ImageContainer, ProductDetails, ReviewsContainer, Review, AddToCartButton } from "./Product.styles";
+import { ProductContainer, ContentContainer, ImageContainer, ProductDetails, ReviewsContainer, Review } from "./Product.styles";
 import { calculateDiscountPercentage } from "../../utils/calculateDiscountPercentage";
 import { ProductPrice, OriginalPrice, DiscountPercentage, StarIcon, ProductTitle, ProductDescription, ProductRating } from "../../styles/sharedStylesProducts";
+import StyledButton from "../../components/StyledButton";
 import useProductStore from "../../store/useProductStore";
 
 const ProductPage = () => {
@@ -65,7 +66,9 @@ const ProductPage = () => {
               <span>${product.price}</span>
             )}
           </ProductPrice>
-          <AddToCartButton onClick={handleAddToCart}>Add to Cart</AddToCartButton>
+          <StyledButton variant="primary" size="large" onClick={handleAddToCart}>
+            Add to Cart
+          </StyledButton>
         </ProductDetails>
       </ContentContainer>
       <ReviewsContainer>

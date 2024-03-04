@@ -41,15 +41,8 @@ const GlobalStyle = createGlobalStyle`
     font-size: 1em;
     font-weight: 500;
     font-family: inherit;
-    background-color: ${({ theme }) => theme.colors.buttonBackground};
     cursor: pointer;
     transition: border-color 0.25s;
-    &:hover {
-      border-color: ${({ theme }) => theme.colors.buttonHoverBorder};
-    }
-    &:focus, &:focus-visible {
-      outline: 4px auto -webkit-focus-ring-color;
-    }
   }
 `;
 

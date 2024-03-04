@@ -1,7 +1,8 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { StyledForm, FormTitle, StyledButton, StyledInput, StyledLabel, StyledTextArea, ErrorMessage } from "./Contact.styles";
+import { StyledForm, FormTitle, StyledInput, StyledLabel, StyledTextArea, ErrorMessage } from "./Contact.styles";
+import StyledButton from "../../components/StyledButton";
 
 const schema = yup.object().shape({
   fullName: yup.string().min(3, "Minimum number of characters is 3").required("Full name is required"),
@@ -48,7 +49,9 @@ const ContactPage = () => {
         <StyledTextArea {...register("body")} />
         <ErrorMessage>{errors.body?.message}</ErrorMessage>
       </div>
-      <StyledButton type="submit">Submit</StyledButton>
+      <StyledButton type="submit" variant="primary" size="fullWidth">
+        Submit
+      </StyledButton>
     </StyledForm>
   );
 };

@@ -37,15 +37,6 @@ export const CartItemPrice = styled(ProductPrice)`
   font-size: 0.875rem;
 `;
 
-export const RemoveButton = styled.button`
-  background-color: #ff4747;
-  color: white;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  margin-left: auto; // Push the remove button to the far right
-`;
-
 export const TotalPrice = styled.div`
   text-align: right;
   font-weight: bold;

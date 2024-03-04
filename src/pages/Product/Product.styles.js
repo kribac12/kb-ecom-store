@@ -52,16 +52,3 @@ export const Review = styled.div`
   padding: 1rem;
   border-radius: 8px;
 `;
-
-export const AddToCartButton = styled.button`
-  background-color: #007bff;
-  color: white;
-  padding: 10px 15px;
-  margin: 15px 0px;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  &:hover {
-    background-color: #0056b3;
-  }
-`;
