@@ -4,6 +4,8 @@ const theme = {
     background: "#ffffff",
     link: "#000000",
     linkHover: "#535bf2",
+    primary: "#00796B",
+    secondary: "#A7C6C3",
   },
   buttonVariants: {
     primary: {
@@ -12,8 +14,8 @@ const theme = {
       color: "#FFFFFF",
     },
     secondary: {
-      backgroundColor: "#B0BEC5",
-      hoverBackgroundColor: "#78909c",
+      backgroundColor: "#A7C6C3",
+      hoverBackgroundColor: "#8AA6A3",
       color: "#000000",
     },
     delete: {

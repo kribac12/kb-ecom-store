@@ -1,12 +1,12 @@
-import { Link } from "react-router-dom";
+import * as S from "./CheckoutSuccessPage.styles";
 
 const CheckoutSuccessPage = () => {
   return (
-    <div>
-      <h1>Order Successful</h1>
-      <p>Your order has been placed successfully.</p>
-      <Link to="/">Go back to the store</Link>
-    </div>
+    <S.SuccessContainer>
+      <S.SuccessTitle>Order Successful</S.SuccessTitle>
+      <S.SuccessMessage>Your order has been placed successfully.</S.SuccessMessage>
+      <S.BackLink to="/">Go back to the store</S.BackLink>
+    </S.SuccessContainer>
   );
 };
 

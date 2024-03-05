@@ -1,42 +1,42 @@
 import { Link } from "react-router-dom";
 import { calculateDiscountPercentage } from "../../utils/calculateDiscountPercentage";
-import { Card, ProductImageContainer, ProductImage, ProductInfo } from "./ProductCard.styles";
-import { ProductPrice, OriginalPrice, DiscountPercentage, ProductTitle, StarIcon, ProductDescription, ProductRating } from "../../styles/sharedStylesProducts";
+import * as S from "./ProductCard.styles";
+import * as P from "../../styles/sharedStylesProducts";
 import PropTypes from "prop-types";
 import StyledButton from "../StyledButton";
 
 const ProductCard = ({ product }) => {
   const discountPercentage = calculateDiscountPercentage(product.price, product.discountedPrice);
   return (
-    <Card>
-      <ProductImageContainer>
-        <ProductImage src={product.image.url} alt={product.image.alt} />
-        {product.discountedPrice < product.price && <DiscountPercentage>{discountPercentage}% OFF</DiscountPercentage>}
-      </ProductImageContainer>
-      <ProductInfo>
-        <ProductTitle>{product.title}</ProductTitle>
-        <ProductDescription>{product.description}</ProductDescription>
-        <ProductRating>
-          <StarIcon />
+    <S.Card>
+      <S.ProductImageContainer>
+        <S.ProductImage src={product.image.url} alt={product.image.alt} />
+        {product.discountedPrice < product.price && <P.DiscountPercentage>{discountPercentage}% OFF</P.DiscountPercentage>}
+      </S.ProductImageContainer>
+      <S.ProductInfo>
+        <P.ProductTitle>{product.title}</P.ProductTitle>
+        <P.ProductDescription>{product.description}</P.ProductDescription>
+        <P.ProductRating>
+          <P.StarIcon />
           {product.rating}
-        </ProductRating>
-        <ProductPrice>
+        </P.ProductRating>
+        <P.ProductPrice>
           {product.discountedPrice < product.price ? (
             <>
-              <OriginalPrice>${product.price}</OriginalPrice>
+              <P.OriginalPrice>${product.price}</P.OriginalPrice>
               <span>${product.discountedPrice}</span>
             </>
           ) : (
             <span>${product.price}</span>
           )}
-        </ProductPrice>
-      </ProductInfo>
+        </P.ProductPrice>
+      </S.ProductInfo>
       <Link to={`/product/${product.id}`}>
         <StyledButton variant="primary" size="large" margin="1rem">
           View Product
         </StyledButton>
       </Link>
-    </Card>
+    </S.Card>
   );
 };
 

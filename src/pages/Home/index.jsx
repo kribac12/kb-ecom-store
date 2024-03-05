@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import useProductStore from "../../store/useProductStore";
 import ProductCard from "../../components/ProductCard";
-import { HeroImage, Title, ProductCardsContainer } from "./Home.styles";
+import * as S from "./Home.styles";
 import heroImage from "../../assets/images/hero.jpeg";
 
 const Home = () => {
@@ -21,15 +21,15 @@ const Home = () => {
   }
 
   return (
-    <>
-      <HeroImage image={heroImage}></HeroImage>
-      <Title>Browse Our Products</Title>
-      <ProductCardsContainer>
+    <div>
+      <S.HeroImage image={heroImage}></S.HeroImage>
+      <S.Title>Browse Our Products</S.Title>
+      <S.ProductCardsContainer>
         {filteredProducts.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
-      </ProductCardsContainer>
-    </>
+      </S.ProductCardsContainer>
+    </div>
   );
 };
 

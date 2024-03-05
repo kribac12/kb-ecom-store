@@ -3,6 +3,7 @@ import * as S from "./Header.styles";
 import CartIcon from "../Carticon";
 import SearchBar from "../SearchBar";
 import { FaBars } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import useProductStore from "../../store/useProductStore";
 
 const Header = () => {
@@ -20,7 +21,12 @@ const Header = () => {
         <S.MenuButton onClick={toggleMenu}>
           <FaBars />
         </S.MenuButton>
-        <S.Logo>Logo</S.Logo>
+        <S.Logo>
+          <Link to="/">
+            <S.BuyText>Buy</S.BuyText>
+            <S.SphereText>Sphere</S.SphereText>
+          </Link>
+        </S.Logo>
         <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
         <S.Nav isMenuOpen={isMenuOpen}>
           <S.NavLink to="/">Home</S.NavLink>

@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import useProductStore from "../../store/useProductStore";
-import { SearchBarContainer, Input } from "./SearchBar.styles";
+import * as S from "./SearchBar.styles";
 
 const SearchBar = () => {
   const setSearchTerm = useProductStore((state) => state.setSearchTerm);
@@ -13,9 +13,9 @@ const SearchBar = () => {
   };
 
   return (
-    <SearchBarContainer>
-      <Input type="text" placeholder="Search our products..." onChange={handleSearchChange} />
-    </SearchBarContainer>
+    <S.SearchBarContainer>
+      <S.Input type="text" placeholder="Search our products..." onChange={handleSearchChange} />
+    </S.SearchBarContainer>
   );
 };
 

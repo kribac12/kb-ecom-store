@@ -1,6 +1,6 @@
 import useProductStore from "../../store/useProductStore";
 import { useNavigate } from "react-router-dom";
-import { CartContainer, CartItem, CartItemDetails, CartItemImage, CartItemTitle, CartItemPrice, TotalPrice } from "./Checkout.styles";
+import * as S from "./Checkout.styles";
 import StyledButton from "../../components/StyledButton";
 
 const CheckoutPage = () => {
@@ -20,32 +20,34 @@ const CheckoutPage = () => {
   const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
 
   return (
-    <CartContainer>
+    <S.CartContainer>
       {cartItems.length > 0 ? (
         <>
           {cartItems.map((item) => (
-            <CartItem key={item.id}>
-              <CartItemImage src={item.image.url} alt={item.image.alt} />
-              <CartItemDetails>
-                <CartItemTitle>{item.title}</CartItemTitle>
-                <CartItemPrice>
+            <S.CartItem key={item.id}>
+              <S.CartItemImage src={item.image.url} alt={item.image.alt} />
+              <S.CartItemDetails>
+                <S.CartItemTitle>{item.title}</S.CartItemTitle>
+                <S.CartItemPrice>
                   ${item.price} x {item.quantity}
-                </CartItemPrice>
+                </S.CartItemPrice>
                 <StyledButton variant="delete" size="medium" onClick={() => removeFromCart(item.id)}>
                   Remove
                 </StyledButton>
-              </CartItemDetails>
-            </CartItem>
+              </S.CartItemDetails>
+            </S.CartItem>
           ))}
-          <TotalPrice>Total: ${totalPrice.toFixed(2)}</TotalPrice>
+          <S.TotalPrice>Total: ${totalPrice.toFixed(2)}</S.TotalPrice>
           <StyledButton variant="primary" size="large" onClick={handleCheckout}>
             Checkout
           </StyledButton>
         </>
       ) : (
-        <p>Your cart is empty.</p>
+        <S.EmptyCartMessage>
+          Oh no! Your cart is empty. <S.EmptyCartLink to="/">Go back to our beautiful products.</S.EmptyCartLink>
+        </S.EmptyCartMessage>
       )}
-    </CartContainer>
+    </S.CartContainer>
   );
 };
 

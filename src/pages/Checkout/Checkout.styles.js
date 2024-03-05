@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { ProductPrice, ProductTitle } from "../../styles/sharedStylesProducts";
+import { Link } from "react-router-dom";
 
 export const CartContainer = styled.div`
   margin: auto;
@@ -52,4 +53,18 @@ export const CheckoutButton = styled.button`
   display: block;
   margin: 20px auto 0;
   width: fit-content;
+`;
+
+export const EmptyCartMessage = styled.div`
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.2rem;
+  margin-top: 20px;
+`;
+
+export const EmptyCartLink = styled(Link)`
+  color: ${(props) => props.theme.colors.primary};
+  text-decoration: none;
+  margin-top: 10px;
 `;

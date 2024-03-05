@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { StyledForm, FormTitle, StyledInput, StyledLabel, StyledTextArea, ErrorMessage } from "./Contact.styles";
+import * as S from "./Contact.styles";
 import StyledButton from "../../components/StyledButton";
 
 const schema = yup.object().shape({
@@ -22,37 +22,39 @@ const ContactPage = () => {
   });
 
   const onSubmit = (data) => {
-    console.log(data);
-    reset(); // Reset the form after submission
+    if (Object.keys(errors).length === 0) {
+      console.log(data);
+      reset();
+    }
   };
 
   return (
-    <StyledForm onSubmit={handleSubmit(onSubmit)}>
-      <FormTitle>Contact Us</FormTitle>
+    <S.StyledForm onSubmit={handleSubmit(onSubmit)}>
+      <S.FormTitle>Contact Us</S.FormTitle>
       <div>
-        <StyledLabel>Full Name</StyledLabel>
-        <StyledInput {...register("fullName")} />
-        <ErrorMessage>{errors.fullName?.message}</ErrorMessage>
+        <S.StyledLabel>Full Name</S.StyledLabel>
+        <S.StyledInput {...register("fullName")} />
+        <S.ErrorMessage>{errors.fullName?.message}</S.ErrorMessage>
       </div>
       <div>
-        <StyledLabel>Subject</StyledLabel>
-        <StyledInput {...register("subject")} />
-        <ErrorMessage>{errors.subject?.message}</ErrorMessage>
+        <S.StyledLabel>Subject</S.StyledLabel>
+        <S.StyledInput {...register("subject")} />
+        <S.ErrorMessage>{errors.subject?.message}</S.ErrorMessage>
       </div>
       <div>
-        <StyledLabel>Email</StyledLabel>
-        <StyledInput {...register("email")} />
-        <ErrorMessage>{errors.email?.message}</ErrorMessage>
+        <S.StyledLabel>Email</S.StyledLabel>
+        <S.StyledInput {...register("email")} />
+        <S.ErrorMessage>{errors.email?.message}</S.ErrorMessage>
       </div>
       <div>
-        <StyledLabel>Body</StyledLabel>
-        <StyledTextArea {...register("body")} />
-        <ErrorMessage>{errors.body?.message}</ErrorMessage>
+        <S.StyledLabel>Body</S.StyledLabel>
+        <S.StyledTextArea {...register("body")} />
+        <S.ErrorMessage>{errors.body?.message}</S.ErrorMessage>
       </div>
-      <StyledButton type="submit" variant="primary" size="fullWidth">
+      <StyledButton type="submit" variant="secondary" size="fullWidth">
         Submit
       </StyledButton>
-    </StyledForm>
+    </S.StyledForm>
   );
 };
 

@@ -71,4 +71,15 @@ export const NavLink = styled(Link)`
   }
 `;
 
-export const Logo = styled.h1``;
+export const Logo = styled.h1`
+  display: inline-block;
+`;
+
+export const BuyText = styled.span`
+  color: black;
+`;
+
+export const SphereText = styled.span`
+  color: #00796b;
+  font-weight: bold;
+`;
