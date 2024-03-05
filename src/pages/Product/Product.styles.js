@@ -63,7 +63,7 @@ const fadeIn = keyframes`
 `;
 
 export const AddedToCartMessage = styled.div`
-  position: absolute;
+  position: relative;
   top: 10px;
   bottom: 20px;
   left: 50%;

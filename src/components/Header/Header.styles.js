@@ -54,6 +54,7 @@ export const Nav = styled.nav`
 
 export const MobileNav = styled.nav`
   display: none;
+  background-color: #fff;
 
   @media (max-width: 768px) {
     display: flex;
