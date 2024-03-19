@@ -3,7 +3,6 @@ const theme = {
     text: "#000000",
     background: "#ffffff",
     link: "#000000",
-    linkHover: "#535bf2",
     primary: "#00796B",
     secondary: "#A7C6C3",
   },

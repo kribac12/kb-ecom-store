@@ -22,7 +22,7 @@ const GlobalStyle = createGlobalStyle`
     color: ${({ theme }) => theme.colors.link};
     text-decoration: inherit;
     &:hover {
-      color: ${({ theme }) => theme.colors.linkHover};
+      font-weight: bold;
     }
   }
 
