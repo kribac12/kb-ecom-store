@@ -9,71 +9,57 @@ export const HeaderContainer = styled.header`
   padding: 1rem;
   max-width: 1200px;
   margin: auto;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
 `;
 
-export const DesktopLayout = styled.div`
+export const TopRow = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  flex-wrap: wrap;
+  order: 1;
 
   @media (min-width: 768px) {
-    justify-content: space-between;
-  }
-`;
-
-export const MenuButton = styled.button`
-  background: none;
-  border: none;
-  cursor: pointer;
-
-  @media (min-width: 768px) {
-    display: none;
+    width: auto;
+    order: 1;
+    flex: 1;
   }
 `;
 
 export const Nav = styled.nav`
-  display: ${({ isMenuOpen }) => (isMenuOpen ? "none" : "flex")};
-  flex-direction: row;
-  align-items: center;
+  display: flex;
   gap: 20px;
+  justify-content: center;
+  order: 3;
+  width: 100%;
 
-  @media (max-width: 768px) {
-    flex-direction: column;
-    display: flex;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background-color: white;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
-`;
-
-export const MobileNav = styled.nav`
-  display: none;
-  background-color: #fff;
-
-  @media (max-width: 768px) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
+  @media (min-width: 768px) {
+    order: 3;
+    justify-content: flex-end;
+    flex: 1;
   }
 `;
 
 export const NavLink = styled(Link)`
   color: black;
   text-decoration: none;
+  margin: 10px 0px;
   &:hover {
     text-decoration: underline;
   }
 `;
 
 export const Logo = styled.h1`
-  display: inline-block;
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  @media;
 `;
 
 export const BuyText = styled.span`

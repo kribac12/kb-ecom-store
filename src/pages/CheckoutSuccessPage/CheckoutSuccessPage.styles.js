@@ -11,7 +11,7 @@ export const SuccessTitle = styled.h1`
   color: #333;
 `;
 
-export const SuccessMessage = styled.p`
+export const SuccessMessageCheckout = styled.p`
   font-size: 1.2rem;
   margin-top: 20px;
   color: #666;

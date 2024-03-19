@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react"; // Add useState to import statement
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import * as S from "./Product.styles";
 import { calculateDiscountPercentage } from "../../utils/calculateDiscountPercentage";
-import * as P from "../../styles/sharedStylesProducts";
+import * as SH from "../../styles/sharedStyles";
 import StyledButton from "../../components/StyledButton";
 import useProductStore from "../../store/useProductStore";
 
@@ -12,7 +12,7 @@ const ProductPage = () => {
   const [product, setProduct] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
-  const [isAddedToCart, setIsAddedToCart] = useState(false); // Define isAddedToCart state
+  const [isAddedToCart, setIsAddedToCart] = useState(false);
 
   // Get addToCart function from store
   const addToCart = useProductStore((state) => state.addToCart);
@@ -42,7 +42,7 @@ const ProductPage = () => {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setIsAddedToCart(false);
-    }, 2000);
+    }, 5000);
 
     return () => clearTimeout(timeout);
   }, [isAddedToCart]);
@@ -57,42 +57,47 @@ const ProductPage = () => {
       <S.ContentContainer>
         <S.ImageContainer>
           <img src={product.image.url} alt={product.image.alt} />
-          {product.discountedPrice < product.price && <P.DiscountPercentage>{discountPercentage}% OFF</P.DiscountPercentage>}
+          {product.discountedPrice < product.price && <SH.DiscountPercentage>{discountPercentage}% OFF</SH.DiscountPercentage>}
         </S.ImageContainer>
         <S.ProductDetails>
-          <P.ProductTitle>{product.title}</P.ProductTitle>
-          <P.ProductDescription>{product.description}</P.ProductDescription>
-          <P.ProductRating>
-            <P.StarIcon />
+          <S.ProductTitleSpecific>{product.title}</S.ProductTitleSpecific>
+          <SH.ProductDescription>{product.description}</SH.ProductDescription>
+          <SH.ProductRating>
+            <SH.StarIcon />
             {product.rating}
-          </P.ProductRating>
-
-          <P.ProductPrice>
+          </SH.ProductRating>
+          <SH.ProductPrice>
             {product.discountedPrice < product.price ? (
               <>
-                <P.OriginalPrice>${product.price}</P.OriginalPrice>
+                <SH.OriginalPrice>${product.price}</SH.OriginalPrice>
                 <span>${product.discountedPrice}</span>
               </>
             ) : (
               <span>${product.price}</span>
             )}
-          </P.ProductPrice>
+          </SH.ProductPrice>
 
           <StyledButton variant="primary" size="large" onClick={handleAddToCart}>
             Add to Cart
           </StyledButton>
-          {isAddedToCart && <S.AddedToCartMessage>Item added to cart!</S.AddedToCartMessage>}
+          {isAddedToCart && <SH.SuccessMessage>Item added to cart!</SH.SuccessMessage>}
         </S.ProductDetails>
       </S.ContentContainer>
       <S.ReviewsContainer>
-        {product.reviews &&
+        <h1>Reviews</h1>
+        {product.reviews && product.reviews.length > 0 ? (
           product.reviews.map((review) => (
             <S.Review key={review.id}>
               <p>
                 <strong>{review.username}</strong>: {review.description} - Rating: {review.rating}
               </p>
             </S.Review>
-          ))}
+          ))
+        ) : (
+          <p>
+            The product <strong>{product.title}</strong> has not received any reviews yet.
+          </p>
+        )}
       </S.ReviewsContainer>
     </S.ProductContainer>
   );

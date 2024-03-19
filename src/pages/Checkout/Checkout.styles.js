@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ProductPrice, ProductTitle } from "../../styles/sharedStylesProducts";
+import { ProductPrice, ProductTitle } from "../../styles/sharedStyles";
 import { Link } from "react-router-dom";
 
 export const CartContainer = styled.div`

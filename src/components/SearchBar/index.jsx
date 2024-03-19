@@ -13,7 +13,7 @@ const SearchBar = () => {
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
     if (location.pathname !== "/") {
-      navigate("/"); // Navigate to the home page when searching from other pages
+      navigate("/");
     }
   };
 

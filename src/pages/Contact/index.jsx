@@ -1,7 +1,9 @@
 import { useForm } from "react-hook-form";
+import { useState } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import * as S from "./Contact.styles";
+import * as SH from "../../styles/sharedStyles";
 import StyledButton from "../../components/StyledButton";
 
 const schema = yup.object().shape({
@@ -12,6 +14,8 @@ const schema = yup.object().shape({
 });
 
 const ContactPage = () => {
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -25,6 +29,8 @@ const ContactPage = () => {
     if (Object.keys(errors).length === 0) {
       console.log(data);
       reset();
+      setShowSuccessMessage(true);
+      setTimeout(() => setShowSuccessMessage(false), 10000);
     }
   };
 
@@ -54,6 +60,7 @@ const ContactPage = () => {
       <StyledButton type="submit" variant="secondary" size="fullWidth">
         Submit
       </StyledButton>
+      {showSuccessMessage && <SH.SuccessMessage>Thank you for your message, we will get back to you as soon as we can!</SH.SuccessMessage>}
     </S.StyledForm>
   );
 };

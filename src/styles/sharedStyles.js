@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { FaStar } from "react-icons/fa";
 
 export const StarIcon = styled(FaStar)`
@@ -42,4 +42,26 @@ export const ProductRating = styled.div`
   display: flex;
   align-items: center;
   gap: 4px;
+`;
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
+
+export const SuccessMessage = styled.div`
+  position: relative;
+  top: 10px;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ffc107;
+  color: #000;
+  padding: 25px;
+  border-radius: 5px;
+  animation: ${fadeIn} 0.5s ease-in-out;
 `;

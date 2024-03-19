@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { calculateDiscountPercentage } from "../../utils/calculateDiscountPercentage";
 import * as S from "./ProductCard.styles";
-import * as P from "../../styles/sharedStylesProducts";
+import * as P from "../../styles/sharedStyles";
 import PropTypes from "prop-types";
 import StyledButton from "../StyledButton";
 
