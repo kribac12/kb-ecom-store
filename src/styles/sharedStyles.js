@@ -2,13 +2,13 @@ import styled, { keyframes } from "styled-components";
 import { FaStar } from "react-icons/fa";
 
 export const StarIcon = styled(FaStar)`
-  color: #ffc107;
+  color: ${({ theme }) => theme.colors.accent};
   margin-right: 4px;
 `;
 
 export const OriginalPrice = styled.span`
   text-decoration: line-through;
-  color: #333333;
+  color: ${({ theme }) => theme.colors.dark};
   margin-right: 0.5rem;
 `;
 
@@ -21,8 +21,7 @@ export const DiscountPercentage = styled.span`
   position: absolute;
   top: 0;
   right: 0;
-  background-color: #ffc107;
-  color: black;
+  background-color: ${({ theme }) => theme.colors.accent};
   padding: 0.25rem 0.5rem;
   border-radius: 0 0 0 5px;
   font-size: 0.75rem;
@@ -35,7 +34,7 @@ export const ProductTitle = styled.h2`
 `;
 
 export const ProductDescription = styled.p`
-  color: #333333;
+  color: ${({ theme }) => theme.colors.dark};
 `;
 
 export const ProductRating = styled.div`
@@ -59,8 +58,7 @@ export const SuccessMessage = styled.div`
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  background-color: #ffc107;
-  color: #000;
+  background-color: ${({ theme }) => theme.colors.accent};
   padding: 25px;
   border-radius: 5px;
   animation: ${fadeIn} 0.5s ease-in-out;

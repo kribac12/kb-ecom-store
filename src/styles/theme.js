@@ -5,6 +5,11 @@ const theme = {
     link: "#000000",
     primary: "#00796B",
     secondary: "#A7C6C3",
+    alert: "#ED0D0D",
+    success: "#4CAF50",
+    accent: "#ffc107",
+    light: "#f5f5f5",
+    dark: "#333333",
   },
   buttonVariants: {
     primary: {

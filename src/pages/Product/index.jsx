@@ -7,7 +7,7 @@ import * as SH from "../../styles/sharedStyles";
 import StyledButton from "../../components/StyledButton";
 import useProductStore from "../../store/useProductStore";
 
-const ProductPage = () => {
+function ProductPage() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -34,10 +34,10 @@ const ProductPage = () => {
   }, [id]);
 
   // Handle add to cart button click
-  const handleAddToCart = () => {
+  function handleAddToCart() {
     addToCart({ ...product, quantity: 1 });
     setIsAddedToCart(true);
-  };
+  }
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -80,7 +80,7 @@ const ProductPage = () => {
           <StyledButton variant="primary" size="large" onClick={handleAddToCart}>
             Add to Cart
           </StyledButton>
-          {isAddedToCart && <SH.SuccessMessage>Item added to cart!</SH.SuccessMessage>}
+          {isAddedToCart && <SH.SuccessMessage>{product.title} added to cart!</SH.SuccessMessage>}
         </S.ProductDetails>
       </S.ContentContainer>
       <S.ReviewsContainer>
@@ -101,6 +101,6 @@ const ProductPage = () => {
       </S.ReviewsContainer>
     </S.ProductContainer>
   );
-};
+}
 
 export default ProductPage;

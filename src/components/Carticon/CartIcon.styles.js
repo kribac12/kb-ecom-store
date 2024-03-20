@@ -13,8 +13,8 @@ export const ItemCount = styled.span`
   position: absolute;
   top: -8px;
   right: -8px;
-  background-color: red;
-  color: white;
+  background-color: ${({ theme }) => theme.colors.alert};
+  color: ${({ theme }) => theme.colors.light};
   font-size: 0.75rem;
   width: 20px;
   height: 20px;

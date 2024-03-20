@@ -4,7 +4,7 @@ import SearchBar from "../SearchBar";
 import { Link } from "react-router-dom";
 import useProductStore from "../../store/useProductStore";
 
-const Header = () => {
+function Header() {
   const { searchTerm, setSearchTerm } = useProductStore((state) => ({
     searchTerm: state.searchTerm,
     setSearchTerm: state.setSearchTerm,
@@ -20,14 +20,20 @@ const Header = () => {
           </Link>
         </S.Logo>
       </S.TopRow>
-      <S.Nav>
-        <S.NavLink to="/">Home</S.NavLink>
-        <S.NavLink to="/contact">Contact</S.NavLink>
+      <S.Nav as="nav">
+        <S.NavList>
+          <li>
+            <S.NavLink to="/">Home</S.NavLink>
+          </li>
+          <li>
+            <S.NavLink to="/contact">Contact</S.NavLink>
+          </li>
+        </S.NavList>
         <CartIcon itemCount={5} />
       </S.Nav>
       <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
     </S.HeaderContainer>
   );
-};
+}
 
 export default Header;

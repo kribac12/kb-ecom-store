@@ -5,7 +5,7 @@ import * as P from "../../styles/sharedStyles";
 import PropTypes from "prop-types";
 import StyledButton from "../StyledButton";
 
-const ProductCard = ({ product }) => {
+function ProductCard({ product }) {
   const discountPercentage = calculateDiscountPercentage(product.price, product.discountedPrice);
   return (
     <S.Card>
@@ -38,7 +38,7 @@ const ProductCard = ({ product }) => {
       </Link>
     </S.Card>
   );
-};
+}
 
 ProductCard.propTypes = {
   product: PropTypes.shape({

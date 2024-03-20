@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const FormTitle = styled.h1`
   font-size: 32px;
-  color: #333;
+  color: ${({ theme }) => theme.colors.dark};
   margin-bottom: 20px;
   text-align: center;
 `;
@@ -36,6 +36,6 @@ export const StyledTextArea = styled.textarea`
 `;
 
 export const ErrorMessage = styled.p`
-  color: red;
+  color: ${({ theme }) => theme.colors.alert};
   margin-bottom: 10px;
 `;

@@ -37,6 +37,7 @@ export const Nav = styled.nav`
   gap: 20px;
   justify-content: center;
   order: 3;
+  padding: 10px 0px;
   width: 100%;
 
   @media (min-width: 768px) {
@@ -45,9 +46,13 @@ export const Nav = styled.nav`
     flex: 1;
   }
 `;
+export const NavList = styled.ul`
+  list-style: none;
+  display: flex;
+  gap: 20px;
+`;
 
 export const NavLink = styled(Link)`
-  color: black;
   text-decoration: none;
   margin: 10px 0px;
   &:hover {
@@ -59,7 +64,6 @@ export const Logo = styled.h1`
   display: flex;
   flex-grow: 1;
   justify-content: center;
-  @media;
 `;
 
 export const BuyText = styled.span`
@@ -67,6 +71,6 @@ export const BuyText = styled.span`
 `;
 
 export const SphereText = styled.span`
-  color: #00796b;
+  color: ${({ theme }) => theme.colors.primary};
   font-weight: bold;
 `;

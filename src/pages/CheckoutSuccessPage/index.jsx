@@ -2,7 +2,7 @@ import * as S from "./CheckoutSuccessPage.styles";
 import { Link } from "react-router-dom";
 import StyledButton from "../../components/StyledButton";
 
-const CheckoutSuccessPage = () => {
+function CheckoutSuccessPage() {
   return (
     <S.SuccessContainer>
       <S.SuccessTitle>Order Successful</S.SuccessTitle>
@@ -12,6 +12,6 @@ const CheckoutSuccessPage = () => {
       </StyledButton>
     </S.SuccessContainer>
   );
-};
+}
 
 export default CheckoutSuccessPage;

@@ -3,7 +3,7 @@ import Header from "../Header";
 import Footer from "../Footer";
 import * as S from "./Layout.styles";
 
-const Layout = () => {
+function Layout() {
   return (
     <>
       <Header />
@@ -13,6 +13,6 @@ const Layout = () => {
       <Footer />
     </>
   );
-};
+}
 
 export default Layout;

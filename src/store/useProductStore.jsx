@@ -1,5 +1,4 @@
 import { create } from "zustand";
-import { fetchProducts } from "../services/api";
 
 const useProductStore = create((set, get) => ({
   products: [],
@@ -7,21 +6,16 @@ const useProductStore = create((set, get) => ({
   isLoading: false,
   isError: false,
   searchTerm: "",
-  fetchProducts: async () => {
-    set({ isLoading: true, isError: false });
-    try {
-      const products = await fetchProducts();
-      set({ products, isLoading: false });
-      get().filterProducts(get().searchTerm);
-    } catch (error) {
-      console.error("Failed to fetch products:", error);
-      set({ products: [], isLoading: false, isError: true });
-    }
+
+  setProducts: (products) => {
+    set({ products: products, filteredProducts: products });
   },
+
   setSearchTerm: (term) => {
     set({ searchTerm: term });
     get().filterProducts(term);
   },
+
   filterProducts: (term) => {
     if (term.trim() === "") {
       set({ filteredProducts: get().products });
@@ -30,6 +24,7 @@ const useProductStore = create((set, get) => ({
       set({ filteredProducts: filtered });
     }
   },
+
   cartItems: [],
   addToCart: (item) => {
     set((state) => {
@@ -48,8 +43,23 @@ const useProductStore = create((set, get) => ({
   },
   removeFromCart: (itemId) => {
     set((state) => {
-      const updatedCartItems = state.cartItems.filter((item) => item.id !== itemId || (item.id === itemId && item.quantity > 1 ? --item.quantity : false));
-      return { cartItems: updatedCartItems.filter((item) => item.quantity > 0) };
+      const existingItem = state.cartItems.find((item) => item.id === itemId);
+      if (!existingItem) {
+        return state;
+      }
+      if (existingItem.quantity > 1) {
+        // If more than one of the item exists, reduce the quantity by one.
+        return {
+          ...state,
+          cartItems: state.cartItems.map((item) => (item.id === itemId ? { ...item, quantity: item.quantity - 1 } : item)),
+        };
+      } else {
+        // If only one item exists, remove it from the cart.
+        return {
+          ...state,
+          cartItems: state.cartItems.filter((item) => item.id !== itemId),
+        };
+      }
     });
   },
   getItemCount: () => get().cartItems.reduce((total, item) => total + item.quantity, 0),

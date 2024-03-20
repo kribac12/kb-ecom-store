@@ -13,7 +13,7 @@ const schema = yup.object().shape({
   body: yup.string().min(3, "Minimum number of characters is 3").required("Body is required"),
 });
 
-const ContactPage = () => {
+function ContactPage() {
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
   const {
@@ -25,14 +25,14 @@ const ContactPage = () => {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = (data) => {
+  function onSubmit(data) {
     if (Object.keys(errors).length === 0) {
       console.log(data);
       reset();
       setShowSuccessMessage(true);
       setTimeout(() => setShowSuccessMessage(false), 10000);
     }
-  };
+  }
 
   return (
     <S.StyledForm onSubmit={handleSubmit(onSubmit)}>
@@ -63,6 +63,6 @@ const ContactPage = () => {
       {showSuccessMessage && <SH.SuccessMessage>Thank you for your message, we will get back to you as soon as we can!</SH.SuccessMessage>}
     </S.StyledForm>
   );
-};
+}
 
 export default ContactPage;

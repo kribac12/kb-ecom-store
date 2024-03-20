@@ -1,11 +1,9 @@
 import styled from "styled-components";
 
 export const Card = styled.div`
-  background-color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   overflow: hidden;
-  margin: 1rem;
   position: relative;
   width: 300px;
 `;

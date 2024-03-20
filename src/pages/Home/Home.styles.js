@@ -17,6 +17,7 @@ export const Title = styled.h1`
 export const ProductCardsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
+  gap: 35px;
   justify-content: center;
   margin-bottom: 10rem;
 `;

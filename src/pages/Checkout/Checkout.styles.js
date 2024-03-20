@@ -11,6 +11,7 @@ export const CartContainer = styled.div`
 export const CartItem = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-between;
   border-bottom: 1px solid #eee;
   padding-bottom: 20px;
   margin-bottom: 20px;
@@ -31,28 +32,17 @@ export const CartItemDetails = styled.div`
 `;
 
 export const CartItemTitle = styled(ProductTitle)`
-  font-size: 1rem;
+  font-size: 1.2rem;
 `;
 
 export const CartItemPrice = styled(ProductPrice)`
-  font-size: 0.875rem;
+  font-size: 1rem;
 `;
 
 export const TotalPrice = styled.div`
   text-align: right;
   font-weight: bold;
   font-size: 1.25rem;
-`;
-
-export const CheckoutButton = styled.button`
-  background-color: #007bff;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  display: block;
-  margin: 20px auto 0;
-  width: fit-content;
 `;
 
 export const EmptyCartMessage = styled.div`
@@ -64,7 +54,7 @@ export const EmptyCartMessage = styled.div`
 `;
 
 export const EmptyCartLink = styled(Link)`
-  color: ${(props) => props.theme.colors.primary};
+  color: ${({ theme }) => theme.colors.primary};
   text-decoration: none;
   margin-top: 10px;
 `;

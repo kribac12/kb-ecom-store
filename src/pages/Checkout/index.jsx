@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import * as S from "./Checkout.styles";
 import StyledButton from "../../components/StyledButton";
 
-const CheckoutPage = () => {
+function CheckoutPage() {
   const navigate = useNavigate();
   const { cartItems, removeFromCart, clearCart } = useProductStore((state) => ({
     cartItems: state.cartItems,
@@ -11,10 +11,10 @@ const CheckoutPage = () => {
     clearCart: state.clearCart,
   }));
 
-  const handleCheckout = () => {
+  function handleCheckout() {
     clearCart();
     navigate("/checkout-success", { replace: true });
-  };
+  }
 
   // Calculate total price
   const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
@@ -38,7 +38,7 @@ const CheckoutPage = () => {
             </S.CartItem>
           ))}
           <S.TotalPrice>Total: ${totalPrice.toFixed(2)}</S.TotalPrice>
-          <StyledButton variant="primary" size="large" onClick={handleCheckout}>
+          <StyledButton variant="primary" size="fullWidth" margin="20px auto" onClick={handleCheckout}>
             Checkout
           </StyledButton>
         </>
@@ -49,6 +49,6 @@ const CheckoutPage = () => {
       )}
     </S.CartContainer>
   );
-};
+}
 
 export default CheckoutPage;
