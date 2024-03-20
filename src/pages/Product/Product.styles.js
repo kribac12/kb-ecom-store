@@ -49,7 +49,7 @@ export const ReviewsContainer = styled.div`
 `;
 
 export const Review = styled.div`
-  background-color: #f3f3f3;
+  background-color: ${({ theme }) => theme.colors.light};
   margin-bottom: 1rem;
   padding: 1rem;
   border-radius: 8px;
