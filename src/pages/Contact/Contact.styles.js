@@ -30,7 +30,7 @@ export const StyledInput = styled.input`
 
 export const StyledTextArea = styled.textarea`
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid ${({ theme }) => theme.colors.border};
   border-radius: 5px;
   width: 100%;
 `;

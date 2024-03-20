@@ -10,6 +10,7 @@ const theme = {
     accent: "#ffc107",
     light: "#f5f5f5",
     dark: "#333333",
+    border: "#ccc",
   },
   buttonVariants: {
     primary: {

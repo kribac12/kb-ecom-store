@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const StyledButton = styled.button`
+export const Button = styled.button`
   background-color: ${({ theme, variant }) => theme.buttonVariants[variant].backgroundColor};
   color: ${({ theme, variant }) => theme.buttonVariants[variant].color};
   width: ${({ theme, size }) => theme.buttonSizes[size] || "auto"};
@@ -11,5 +11,3 @@ const StyledButton = styled.button`
     border-color: ${({ theme, variant }) => theme.buttonVariants[variant].hoverBorderColor};
   }
 `;
-
-export default StyledButton;

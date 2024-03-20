@@ -12,14 +12,14 @@ export const CartItem = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.border};
   padding-bottom: 20px;
   margin-bottom: 20px;
 `;
 
 export const CartItemImage = styled.img`
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   object-fit: cover;
   margin-right: 20px;
 `;
