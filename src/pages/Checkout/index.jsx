@@ -43,13 +43,17 @@ function CheckoutPage() {
             </S.CartItem>
           ))}
           <S.TotalPrice>Total: ${totalPrice.toFixed(2)}</S.TotalPrice>
+          <p>
+            <S.CartLink to="/">Continue shopping</S.CartLink>
+          </p>
+
           <StyledButton variant="primary" size="fullWidth" margin="20px auto" onClick={handleCheckout}>
             Checkout
           </StyledButton>
         </>
       ) : (
         <S.EmptyCartMessage>
-          Oh no! Your cart is empty. <S.EmptyCartLink to="/">Go back to our beautiful products.</S.EmptyCartLink>
+          Oh no! Your cart is empty. <S.CartLink to="/">Go back to our beautiful products.</S.CartLink>
         </S.EmptyCartMessage>
       )}
     </S.CartContainer>

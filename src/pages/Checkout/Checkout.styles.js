@@ -43,6 +43,7 @@ export const TotalPrice = styled.div`
   text-align: right;
   font-weight: bold;
   font-size: 1.25rem;
+  margin-bottom: 20px;
 `;
 
 export const EmptyCartMessage = styled.div`
@@ -53,8 +54,8 @@ export const EmptyCartMessage = styled.div`
   margin-top: 20px;
 `;
 
-export const EmptyCartLink = styled(Link)`
+export const CartLink = styled(Link)`
   color: ${({ theme }) => theme.colors.primary};
-  text-decoration: none;
-  margin-top: 10px;
+  text-decoration: underline;
+  font-size: 1.2rem;
 `;
