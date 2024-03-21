@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Helmet } from "react-helmet";
 import useApi from "../../services/api";
 import useProductStore from "../../store/useProductStore";
 import ProductCard from "../../components/ProductCard";
@@ -21,6 +22,10 @@ function Home() {
 
   return (
     <div>
+      <Helmet>
+        <title>Home - Your Store Name</title>
+        <meta name="description" content="Welcome to BuySphere store, buy our gadgets, clothes, perfumes, toys, and much more." />
+      </Helmet>
       <S.HeroImage image={heroImage} />
       <S.Title>Browse Our Products</S.Title>
       <S.ProductCardsContainer>

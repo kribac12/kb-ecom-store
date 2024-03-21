@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import axios from "axios";
-import * as S from "./Product.styles";
 import { calculateDiscountPercentage } from "../../utils/calculateDiscountPercentage";
+import useProductStore from "../../store/useProductStore";
+import * as S from "./Product.styles";
 import * as SH from "../../styles/sharedStyles";
 import StyledButton from "../../components/StyledButton";
-import useProductStore from "../../store/useProductStore";
 
 function ProductPage() {
   const { id } = useParams();
@@ -54,6 +55,11 @@ function ProductPage() {
 
   return (
     <S.ProductContainer>
+      <Helmet>
+        {" "}
+        <title> {product.title} - BuySphere</title>
+        <meta name="description" content="Details about your product." />
+      </Helmet>
       <S.ContentContainer>
         <S.ImageContainer>
           <img src={product.image.url} alt={product.image.alt} />
