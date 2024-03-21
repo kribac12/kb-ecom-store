@@ -43,23 +43,23 @@ function ContactPage() {
       </Helmet>
       <S.FormTitle>Contact Us</S.FormTitle>
       <div>
-        <S.StyledLabel>Full Name</S.StyledLabel>
-        <S.StyledInput {...register("fullName")} />
+        <S.StyledLabel htmlFor="fullName">Full Name</S.StyledLabel>
+        <S.StyledInput id="fullName" {...register("fullName")} />
         <S.ErrorMessage>{errors.fullName?.message}</S.ErrorMessage>
       </div>
       <div>
-        <S.StyledLabel>Subject</S.StyledLabel>
-        <S.StyledInput {...register("subject")} />
+        <S.StyledLabel htmlFor="subject">Subject</S.StyledLabel>
+        <S.StyledInput id="subject" {...register("subject")} />
         <S.ErrorMessage>{errors.subject?.message}</S.ErrorMessage>
       </div>
       <div>
-        <S.StyledLabel>Email</S.StyledLabel>
-        <S.StyledInput {...register("email")} />
+        <S.StyledLabel htmlFor="email">Email</S.StyledLabel>
+        <S.StyledInput id="email" {...register("email")} type="email" />
         <S.ErrorMessage>{errors.email?.message}</S.ErrorMessage>
       </div>
       <div>
-        <S.StyledLabel>Body</S.StyledLabel>
-        <S.StyledTextArea {...register("body")} />
+        <S.StyledLabel htmlFor="body">Body</S.StyledLabel>
+        <S.StyledTextArea id="body" {...register("body")} />
         <S.ErrorMessage>{errors.body?.message}</S.ErrorMessage>
       </div>
       <StyledButton type="submit" variant="secondary" size="fullWidth">

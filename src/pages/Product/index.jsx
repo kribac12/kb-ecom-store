@@ -56,7 +56,6 @@ function ProductPage() {
   return (
     <S.ProductContainer>
       <Helmet>
-        {" "}
         <title> {product.title} - BuySphere</title>
         <meta name="description" content="Details about your product." />
       </Helmet>
