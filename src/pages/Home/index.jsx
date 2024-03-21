@@ -4,7 +4,7 @@ import useApi from "../../services/api";
 import useProductStore from "../../store/useProductStore";
 import ProductCard from "../../components/ProductCard";
 import * as S from "./Home.styles";
-import heroImage from "../../assets/images/hero.jpeg";
+import heroImage from "../../assets/images/hero.jpg";
 
 function Home() {
   const { data, isLoading, isError } = useApi("https://v2.api.noroff.dev/online-shop");

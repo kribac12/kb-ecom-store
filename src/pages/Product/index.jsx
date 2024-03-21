@@ -43,7 +43,7 @@ function ProductPage() {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setIsAddedToCart(false);
-    }, 5000);
+    }, 4000);
 
     return () => clearTimeout(timeout);
   }, [isAddedToCart]);

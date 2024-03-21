@@ -54,9 +54,10 @@ export const NavList = styled.ul`
 
 export const NavLink = styled(Link)`
   text-decoration: none;
-  margin: 10px 0px;
+  padding: 15px 10px;
+
   &:hover {
-    text-decoration: underline;
+    background-color: ${({ theme }) => theme.colors.secondary};
   }
 `;
 

@@ -53,13 +53,13 @@ const fadeIn = keyframes`
 `;
 
 export const SuccessMessage = styled.div`
-  position: relative;
-  top: 10px;
-  bottom: 20px;
+  position: fixed;
+  top: 20px;
   left: 50%;
   transform: translateX(-50%);
   background-color: ${({ theme }) => theme.colors.accent};
   padding: 25px;
   border-radius: 5px;
   animation: ${fadeIn} 0.5s ease-in-out;
+  z-index: 1000;
 `;

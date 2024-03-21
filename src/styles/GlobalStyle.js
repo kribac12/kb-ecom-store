@@ -23,6 +23,7 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: inherit;
     &:hover {
       font-weight: bold;
+      text-decoration: none;
     }
   }
 
