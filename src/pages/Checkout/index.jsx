@@ -1,6 +1,6 @@
 import useProductStore from "../../store/useProductStore";
 import { useNavigate } from "react-router-dom";
-import { Helmet } from "react-helmet";
+
 import * as S from "./Checkout.styles";
 import StyledButton from "../../components/StyledButton";
 
@@ -22,10 +22,6 @@ function CheckoutPage() {
 
   return (
     <S.CartContainer>
-      <Helmet>
-        <title>Checkout - BuySphere</title>
-        <meta name="description" content="Review your cart and complete your purchase." />
-      </Helmet>
       {cartItems.length > 0 ? (
         <>
           {cartItems.map((item) => (

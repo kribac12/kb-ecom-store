@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Helmet } from "react-helmet";
+
 import axios from "axios";
 import { calculateDiscountPercentage } from "../../utils/calculateDiscountPercentage";
 import useProductStore from "../../store/useProductStore";
@@ -55,10 +55,6 @@ function ProductPage() {
 
   return (
     <S.ProductContainer>
-      <Helmet>
-        <title> {product.title} - BuySphere</title>
-        <meta name="description" content="Details about your product." />
-      </Helmet>
       <S.ContentContainer>
         <S.ImageContainer>
           <img src={product.image.url} alt={product.image.alt} />

@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import { Helmet } from "react-helmet";
+
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import * as S from "./Contact.styles";
@@ -37,10 +37,6 @@ function ContactPage() {
 
   return (
     <S.StyledForm onSubmit={handleSubmit(onSubmit)}>
-      <Helmet>
-        <title>Checkout - BuySphere</title>
-        <meta name="description" content="Review your cart items and proceed to checkout to complete your purchase." />
-      </Helmet>
       <S.FormTitle>Contact Us</S.FormTitle>
       <div>
         <S.StyledLabel htmlFor="fullName">Full Name</S.StyledLabel>
