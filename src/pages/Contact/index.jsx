@@ -62,7 +62,7 @@ function ContactPage() {
         <S.StyledTextArea id="body" {...register("body")} />
         <S.ErrorMessage>{errors.body?.message}</S.ErrorMessage>
       </div>
-      <StyledButton type="submit" variant="secondary" size="fullWidth">
+      <StyledButton type="submit" variant="primary" size="fullWidth">
         Submit
       </StyledButton>
       {showSuccessMessage && <SH.SuccessMessage>Thank you for your message, we will get back to you as soon as we can!</SH.SuccessMessage>}

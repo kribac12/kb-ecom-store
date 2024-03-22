@@ -6,9 +6,11 @@ export const HeaderContainer = styled.header`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  background-color: #ffffff;
   padding: 1rem;
   max-width: 1200px;
-  margin: auto;
+
+  margin: 0 auto;
 
   @media (min-width: 768px) {
     flex-direction: row;
