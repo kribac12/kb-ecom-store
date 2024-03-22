@@ -1,7 +1,5 @@
-import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import * as S from "./CheckoutSuccessPage.styles";
-import StyledButton from "../../components/StyledButton";
 
 function CheckoutSuccessPage() {
   return (
@@ -12,9 +10,9 @@ function CheckoutSuccessPage() {
       </Helmet>
       <S.SuccessTitle>Order Successful</S.SuccessTitle>
       <S.SuccessMessageCheckout>Your order has been placed successfully.</S.SuccessMessageCheckout>
-      <StyledButton as={Link} to="/" variant="primary" size="large" margin="1rem">
+      <S.BackLink to="/" variant="primary" size="large" margin="1rem">
         Go back to the store
-      </StyledButton>
+      </S.BackLink>
     </S.SuccessContainer>
   );
 }

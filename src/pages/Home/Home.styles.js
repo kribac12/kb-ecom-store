@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
-export const HeroImage = styled.div`
+// Function to filter out custom props
+const shouldForwardProp = (prop) => prop !== "image";
+
+export const HeroImage = styled.div.withConfig({ shouldForwardProp })`
   background-image: url(${({ image }) => image});
   background-position: center;
   background-size: cover;

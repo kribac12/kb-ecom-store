@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
-export const Button = styled.button`
+const shouldForwardProp = (prop) => !["variant", "size", "margin"].includes(prop);
+
+export const Button = styled.button.withConfig({ shouldForwardProp })`
   background-color: ${({ theme, variant }) => theme.buttonVariants[variant].backgroundColor};
   color: ${({ theme, variant }) => theme.buttonVariants[variant].color};
   width: ${({ theme, size }) => theme.buttonSizes[size] || "auto"};
