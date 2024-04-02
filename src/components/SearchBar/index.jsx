@@ -26,7 +26,7 @@ function SearchBar() {
 
   return (
     <S.SearchBarContainer>
-      <S.Input type="text" placeholder="Search our products..." value={searchTerm} onChange={handleSearchChange} />
+      <S.Input type="text" id="search" placeholder="Search our products..." value={searchTerm} onChange={handleSearchChange} />
     </S.SearchBarContainer>
   );
 }
