@@ -41,8 +41,8 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Building for production
 - To build the application for production:
-```sh
-npm run build
+   ```sh
+   npm run build
 - The build artifacts will be stored in the build/ directory. Use npm run preview to view the production build locally.
 
 ## Technologies used:
